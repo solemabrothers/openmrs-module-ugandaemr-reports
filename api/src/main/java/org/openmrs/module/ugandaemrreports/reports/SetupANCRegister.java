@@ -72,13 +72,24 @@ public class SetupANCRegister extends UgandaEMRDataExportManager {
     public String getExcelDesignUuid() {
         return "e8ef4fe4-3c78-11e7-899c-507b9dc4c741";
     }
+    public String getUuid() {
+        return "f717a684-3c78-11e7-adec-507b9dc4c741";
+    }
 
     @Override
     public List<ReportDesign> constructReportDesigns(ReportDefinition reportDefinition) {
         List<ReportDesign> l = new ArrayList<ReportDesign>();
         l.add(buildReportDesign(reportDefinition));
+        l.add(buildExcel(reportDefinition));
         return l;
     }
+    public ReportDesign buildReportDesign(ReportDefinition reportDefinition) {
+        ReportDesign rd = createCSVDesign(getExcelDesignUuid(), reportDefinition);
+        return rd;
+    }
+
+
+
 
     /**
      * Build the report design for the specified report, this allows a user to override the report design by adding properties and other metadata to the report design
@@ -86,9 +97,9 @@ public class SetupANCRegister extends UgandaEMRDataExportManager {
      * @param reportDefinition
      * @return The report design
      */
-    @Override
-    public ReportDesign buildReportDesign(ReportDefinition reportDefinition) {
-        ReportDesign rd = createExcelTemplateDesign(getExcelDesignUuid(), reportDefinition, "ANCRegister.xls");
+
+    public ReportDesign buildExcel(ReportDefinition reportDefinition) {
+        ReportDesign rd = createExcelTemplateDesign("04a7a5de-219f-423c-ba8f-2ba9bfc404fb", reportDefinition, "ANCRegister.xls");
         Properties props = new Properties();
         props.put("repeatingSections", "sheet:1,row:10-13,dataset:ANC");
         props.put("sortWeight", "5000");
@@ -96,10 +107,7 @@ public class SetupANCRegister extends UgandaEMRDataExportManager {
         return rd;
     }
 
-    @Override
-    public String getUuid() {
-        return "f717a684-3c78-11e7-adec-507b9dc4c741";
-    }
+
 
     @Override
     public String getName() {
