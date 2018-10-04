@@ -12,19 +12,6 @@
 
 	<dependencies>
 
-		<!--
-		Libraries to add as dependencies with compile or runtime scope:
-		Find matching dependencies in the maven central repository.
-		<dependency>
-			<groupId>org.other.library</groupId>
-			<artifactId>library-name</artifactId>
-			<version>library.version</version>
-			<scope>compile</scope>
-		</dependency>
-		-->
-
-
-		<!-- Begin OpenMRS core -->
 
 		<dependency>
 			<groupId>org.openmrs.api</groupId>
@@ -130,7 +117,6 @@
 					<exclude>**/*.xls</exclude>
 				</excludes>
 			</resource>
-			<!-- Add the binary files to the omod without filtering -->
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>false</filtering>
