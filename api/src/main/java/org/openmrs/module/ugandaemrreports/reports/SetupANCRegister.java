@@ -37,6 +37,7 @@ import org.openmrs.module.ugandaemrreports.data.converter.WHODataConverter;
 import org.openmrs.module.ugandaemrreports.definition.data.definition.CalculationDataDefinition;
 import org.openmrs.module.ugandaemrreports.library.Cohorts;
 import org.openmrs.module.ugandaemrreports.library.DataFactory;
+
 import org.openmrs.module.ugandaemrreports.reporting.calculation.anc.AgeLimitCalculation;
 import org.openmrs.module.ugandaemrreports.reporting.calculation.anc.BloodPressureCalculation;
 import org.openmrs.module.ugandaemrreports.reporting.calculation.anc.FolicAcidCalculation;
@@ -60,7 +61,7 @@ import java.util.Properties;
 public class SetupANCRegister extends UgandaEMRDataExportManager {
 
     @Autowired
-    private DataFactgiory df;
+    private DataFactory df;
 
     @Autowired
     SharedDataDefintion sdd;
@@ -137,7 +138,7 @@ public class SetupANCRegister extends UgandaEMRDataExportManager {
 
     @Override
     public String getVersion() {
-        return "0.1";
+        return "0.2";
     }
 
     @Override
